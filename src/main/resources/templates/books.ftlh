@@ -13,7 +13,12 @@
 </head>
 <body>
 
-<h1>Книжный магазин "Spring"</h1><hr>
+<h1>Книжный магазин "Spring" | <a href="/login">"Регистрация/Вход"</a></h1>
+<form action="/logout" method="post">
+    <input type="hidden" name="_csrf" value="${_csrf.token}">
+    <input type="submit" value="Выход"/>
+</form>
+<hr>
 <form action="/" method="get">
     Поиск по названию: <input type="text" name="title"> <br>
     <input type="submit" value="Поиск"/>
