@@ -12,18 +12,16 @@
     </style>
 </head>
 <body>
-
 <h1>Книжный магазин "Spring"</h1><hr>
-<h4>Подробнее о книге</h4>
-<#list images as img>
-    <img src="/images/${img.id}" height="60px"/><br><br>
+<h4>Книги пользователя ${user.name}:</h4>
+<#list books as book>
+    <div>
+        <p><b>${book.title}</b> ${book.price} | <a href="/book/${book.id}">Подробнее...</a></p>
+    </div>
+<#else>
+    <h3>Ничего нет</h3>
 </#list>
-<b>Название: </b> ${book.title}<br>
-<b>Описание: </b> ${book.description}<br>
-<b>Цена: </b> ${book.price}<br>
-<b>Автор: </b> ${book.author}<br>
-<b>Год: </b> ${book.year}<br>
-<b>Продавец: </b> <a href="/user/${book.user.id}">${book.user.name}</a> <br>
+
 
 <hr>
 <a href="/">На главную</a>

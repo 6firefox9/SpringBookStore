@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <!-- HTML Codes by Quackit.com -->
-    <title>Книжный магазин "Spring" | Регистрация</title>
+    <title>Книжный магазин "Spring"</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="BookStore">
     <style>
@@ -12,19 +12,19 @@
     </style>
 </head>
 <body>
-<h1>Книжный магазин "Spring" | Регистрация</h1><hr>
-<h4>Регистрация</h4>
-<form action="/registration" method="post">
-    Имя пользователя: <input type="text" name="name"><br><br>
-    E-mail: <input type="email" name="email"/><br><br>
-    Пароль: <input type="password" name="password"/><br><br>
-    <input type="hidden" name="_csrf" value="${_csrf.token}">
-    <input type="submit" value="Зарегистрироваться"/>
-</form>
-<#if errorMessage??>
-    <h2 style="color: red">${errorMessage}</h2>
-</#if>
 
+<h1>Книжный магазин "Spring"</h1><hr>
+<h2>Редактирование пользователя</h2>
+<form action="/admin/user/edit" method="post">
+    <#list roles as role>
+        <div>
+            <label><input type="checkbox" name="${role}" ${user.roles?seq_contains(role)?string("checked", "")}>${role}</label>
+        </div>
+    </#list>
+    <input type="hidden" name="userId" value="${user.id}">
+    <input type="hidden" name="_csrf" value="${_csrf.token}">
+    <button type="submit">Сохранить</button>
+</form>
 
 <hr>
 <a href="/">На главную</a>

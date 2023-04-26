@@ -21,5 +21,9 @@
     <input type="submit" value="Вход"/>
 </form>
 <a href="/registration">Зарегистрироваться</a>
+
+
+<hr>
+<a href="/">На главную</a>
 </body>
 </html>
